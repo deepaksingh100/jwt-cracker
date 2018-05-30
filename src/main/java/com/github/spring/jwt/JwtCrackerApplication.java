@@ -28,6 +28,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.beust.jcommander.JCommander;
 
+/**
+ * 
+ * Main Class to run this program, parses command line options
+ * 
+ * @author pratapi.patel
+ *
+ */
 @SpringBootApplication
 public class JwtCrackerApplication implements CommandLineRunner {
 
@@ -35,7 +42,7 @@ public class JwtCrackerApplication implements CommandLineRunner {
 
     @Autowired
     private ThreadService threadService;
-
+     
     @SuppressWarnings("squid:S2629")
     @Override
     public void run(String... args) throws Exception {
@@ -65,12 +72,12 @@ public class JwtCrackerApplication implements CommandLineRunner {
             LOG.warn("something unexpected happened", e);
         } finally {
             watch.stop();
-            LOG.info("total time taken [hh::mm:ss:SSS] %s%n", watch);
+            LOG.info("total time taken [hh::mm:ss:SSS] {}", watch);
             LOG.info("************************************************");
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
         SpringApplication.run(JwtCrackerApplication.class, args).close();
         System.exit(0);
